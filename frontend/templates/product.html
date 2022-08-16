@@ -1,0 +1,44 @@
+{% extends 'main.html' %} 
+
+{% load static  %}
+{% block body %}
+
+<div class="row">
+   
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{% static '/images/dog.jpg' %}">
+        <div class="box-element product">
+            <strong> <h4> Products</h4></strong>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn"> Add To Cart</button>
+            <a href="#" class="btn btn-outline-success">View</a>
+            <h4 style="display:inline-block;float:right;">$20</h4>
+        </div>  
+        
+    </div>
+    <div class="col-lg-4">
+        <img  class="thumbnail"  src="{% static '/images/dog.jpg' %}">
+        <div class="box-element product">
+            <strong> <h4> Products</h4></strong>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn"> Add To Cart</button>
+            <a href="#" class="btn btn-outline-success">View</a>
+            <h4 style="display:inline-block;float:right;">$20</h4>
+        </div>
+       
+    </div>
+    <div class="col-lg-4">
+        <img  class="thumbnail"  src="{% static '/images/dog.jpg' %}">
+        <div class="box-element product">
+            <strong> <h4> Products</h4></strong>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn"> Add To Cart</button>
+            <a href="#" class="btn btn-outline-success">View</a>
+            <h4 style="display:inline-block;float:right;">$20</h4>
+        </div>
+       
+        
+    </div> 
+
+</div>
+{% endblock %}

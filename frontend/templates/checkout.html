@@ -1,0 +1,63 @@
+{% extends 'main.html' %} 
+
+{%  load static %}
+{% block body %}
+<div class="row">
+    <div class="col-lg-6">
+        <div class="box-element" id="form-wrapper">
+            <form id="form">
+                <div id="user-info">
+                   <div class="form-field">
+                    <labke>Name:</lable><br>
+                    <input required class="form-control",type="text"name="name", placeholder="name.....">
+                   </div>
+                   <div class="form-field">
+                    <labke>Email:</lable><br>
+                    <input required class="form-control",type="text"name="email", placeholder="email.....">
+                   </div>
+                 <div>
+                <div id="shipping-info">
+                    <hr>
+                    <p>Shipping Information</p>
+                    <hr>
+                    <div class="form-field">
+                        <input required class="form-control",type="text"name="address", placeholder="address.....">
+                       </div>
+                       <div class="form-field">
+                        <input required class="form-control",type="text"name="city", placeholder="city.....">
+                       </div>
+                       <div class="form-field">
+                        <input required class="form-control",type="text"name="state", placeholder="state.....">
+                       </div>
+                       <div class="form-field">
+                        <input required class="form-control",type="text"name="zip Code", placeholder="zip Code.....">
+                       </div>
+
+                <div>
+                    <hr>
+                    <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+            </form>
+
+        </div>
+        <br>
+         <div class="box-element hidden" id="payment-info">
+            <small>Payment Options</small>
+         </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="box-element">
+        <a class="btn btn-outline-dark" href="{% url 'products:cart' %}">&#x2190 Back to Cart</a>
+        <hr>
+        <h3>Order Summary</h3>
+        <hr>
+        <div class="cart-row">
+            <div style="flex:2"> <img class="row-image" src="{% static 'images/cart.jpg' %}"> </div>
+            <div style="flex:2">Dog</div>
+            <div style="flex:1">$20</div>
+            <div style="flex:1">x2</div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
