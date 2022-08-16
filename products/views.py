@@ -1,10 +1,13 @@
-
+from .models import Product, Order, OrderItem, Shipping, Customer
 from django.http import request
 from django.shortcuts import render
 
 
 def product(request):
-    context={}
+    products=Product.objects.all()
+    context={
+        "products":products
+    }
     return render(request, 'product.html', context)
 
 def cart(request):
