@@ -1,4 +1,4 @@
-from .models import Product, Order, OrderItem, Shipping, Customer
+from .models import *
 from django.http import request
 from django.shortcuts import render
 
@@ -16,6 +16,7 @@ def cart(request):
         order,created=Order.objects.get_or_create(customer=customer,complete=False)
         items=order.orderitem_set.all()
     else:
+        customer, order = guestOrder(request, data)
         items=[]
         order={
             'get_cart_total':0,'get_cart_items':0,'shipping':False
@@ -35,17 +36,25 @@ def checkout(request):
         customer=request.user.customer
         order,created=Order.objects.get_or_create(customer=customer,complete=False)
         items=order.orderitem_set.all()
-    else:
-        items=[]
-        order={
-            'get_cart_total':0,'get_cart_items':0,'shipping':False
-        }
-    
         context={
             "items":items,
             "order":order,
 
         }
-    return render(request, 'checkout.html',context)
+        return render(request, 'checkout.html', context)
+
+    # else:
+    #     items=[]
+    #     order={
+    #         'get_cart_total':0,'get_cart_items':0,'shipping':False
+    #     }
+    
+    #     context={
+    #         "items":items,
+    #         "order":order,
+
+    #     }
+    #     return redirect('products:product')
+    # return render(request, 'checkout.html',context)
 
 
